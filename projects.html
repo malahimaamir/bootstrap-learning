@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css">
+
+    <style>
+
+
+/******************************slider************************/
+
+
+
+
+
+
+
+        /***********************************design**********************************/
+
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+.page-content {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  margin-top: 10%;
+  margin-bottom: 1%;
+}
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+  .card {
+    height: 350px;
+  }
+}
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+.card:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
+  transform: translateY(-50%);
+  transition: transform calc(var(--d) * 2) var(--e);
+}
+.card:nth-child(1):before {
+  background-image: url(https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card:nth-child(2):before {
+  background-image: url(https://images.unsplash.com/photo-1533903345306-15d1c30952de?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card:nth-child(3):before {
+  background-image: url(https://images.unsplash.com/photo-1545243424-0ce743321e11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card:nth-child(4):before {
+  background-image: url(https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+}
+.content > * + * {
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.copy {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.btn {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border: none;
+}
+.btn:hover {
+  background-color: #0d0d0d;
+}
+.btn:focus {
+  outline: 1px dashed yellow;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .card:after {
+    transform: translateY(0);
+  }
+
+  .content {
+    transform: translateY(calc(100% - 4.5rem));
+  }
+  .content > *:not(.title) {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+  }
+
+  .card:hover,
+.card:focus-within {
+    align-items: center;
+  }
+  .card:hover:before,
+.card:focus-within:before {
+    transform: translateY(-4%);
+  }
+  .card:hover:after,
+.card:focus-within:after {
+    transform: translateY(-50%);
+  }
+  .card:hover .content,
+.card:focus-within .content {
+    transform: translateY(0);
+  }
+  .card:hover .content > *:not(.title),
+.card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
+
+  .card:focus-within:before, .card:focus-within:after,
+.card:focus-within .content,
+.card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+  }
+}
+
+:root {
+    --white: #ffffff;
+    --grey: #777777;
+    --primary-color: #007bff; /* Change this to your desired primary color */
+}
+
+.about-slogan {
+    padding: 4rem;
+    background-color: var(--white);
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.about-slogan h3 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--grey);
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-slogan {
+        padding: 2rem; /* Reduce padding on smaller screens */
+    }
+
+    .about-slogan h3 {
+        font-size: 1.5rem; /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .about-slogan {
+        padding: 1rem; /* Further reduce padding on extra small screens */
+    }
+
+    .about-slogan h3 {
+        font-size: 1.25rem; /* Even smaller font size */
+    }
+}
+
+/* Make images responsive */
+.fullwidth {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/************************testimonial***********************/
+.container {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+.review-wrap {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 3rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: transform 0.3s;
+}
+
+.review-wrap.active {
+    transform: scale(1.05) !important;
+}
+
+.review-content {
+    padding: 15%;
+    border-bottom: 0.125rem solid var(--grey);
+    position: relative;
+    text-align: center;
+}
+
+.review-img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 12%;
+}
+
+.review-info {
+    padding: 10%;
+    text-align: center;
+}
+
+.rating {
+    margin-top: 1rem;
+}
+
+.rating i {
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .col-4 {
+        flex: 1 1 calc(50% - 20px); /* Two columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .col-4 {
+        flex: 1 1 100%; /* Single column on small screens */
+    }
+
+    .review-content, .review-info {
+        padding: 8%; /* Adjust padding for smaller screens */
+    }
+}
+
+/*button*/
+
+.back-to-top {
+    position: fixed;   
+    bottom: 70px;
+    right: 70px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    padding: .5rem;
+    z-index: 99;
+    display: none; /* Initially hidden */
+}
+
+/*home*/
+/* Global CSS Variables for colors */
+:root {
+    --primary-color: #2a9d8f;
+    --white: #ffffff;
+    --text-color: #333333;
+}
+
+/* Full-height section styling */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('https://example.com/hd-nature-image.jpg'); /* Replace with an HD image of nature */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    color: var(--primary-color);
+    padding: 20px; /* Add padding to ensure spacing on smaller screens */
+}
+
+/* Container styling */
+#home .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Text animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slogan h1,
+.slogan p,
+.slogan button {
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+.slogan h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation-delay: 0.3s;
+}
+
+.slogan p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    animation-delay: 0.6s;
+    line-height: 1.5;
+}
+
+.slogan button {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    animation-delay: 0.9s;
+}
+
+/* Button hover effect */
+.slogan button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Responsive adjustments */
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+    #home .container {
+        padding: 0 30px;
+    }
+    .slogan h1 {
+        font-size: 3rem;
+    }
+    .slogan p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small screens (large smartphones) */
+@media (max-width: 768px) {
+    #home {
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .slogan h1 {
+        font-size: 2.5rem;
+    }
+    .slogan p {
+        font-size: 1rem;
+    }
+    .slogan button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+/* Extra small screens (small smartphones) */
+@media (max-width: 576px) {
+    #home {
+        padding: 30px 15px;
+    }
+    .slogan h1 {
+        font-size: 2rem;
+    }
+    .slogan p {
+        font-size: 0.9rem;
+    }
+    .slogan button {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.2rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+     <!-- ***************************navbar*************************** -->
+     <nav class="navbar navbar-dark bg-custom fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Malahima Portfolio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Portfolio</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Services
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="./projects.html">Projects</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Contact</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <!-- SECTION HOME -->
+    <section id="home" class="fullheight align-items-center bg-img bg-img-fixed"
+        style="background-image: url(image.jpg);background-size: 100% 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-xs-12">
+                    <div class="slogan">
+                        <h1 class="left-to-right play-on-scroll">
+                            Malahima Amir
+                        </h1>
+                        <p class="left-to-right play-on-scroll delay-2">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae eveniet ullam perferendis
+                            eos, nobis corrupti similique fuga ipsa minus at eius ipsam expedita quam aliquam
+                            perspiciatis voluptate qui dolore soluta.
+                        </p>
+                        <div class="left-to-right play-on-scroll delay-4">
+                            <button>
+                                 Portfolio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END SECTION HOME -->
+
+
+<!-- **************************************design************************************* -->
+
+   
+<main class="page-content">
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Mountain View</h2>
+        <p class="copy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p>
+        <button class="btn">View Trips</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">To The Beach</h2>
+        <p class="copy">Plan your next beach trip with these fabulous destinations</p>
+        <button class="btn">View Trips</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Desert Destinations</h2>
+        <p class="copy">It's the desert you've always dreamed of</p>
+        <button class="btn">Book Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Explore The Galaxy</h2>
+        <p class="copy">Seriously, straight up, just blast off into outer space today</p>
+        <button class="btn">Book Now</button>
+      </div>
+    </div>
+  </main>
+ 
+
+
+ <!-- SECION ABOUT -->
+ <section class="about fullheight align-items-center" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-12">
+                <img src="https://img.freepik.com/free-photo/view-spectacular-nature-landscape_23-2150763636.jpg" alt="Nature Landscape" class="fullwidth left-to-right play-on-scroll">
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="about-slogan right-to-left play-on-scroll">
+                    <h3>
+                        <span class="primary-color">We</span> create <span class="primary-color">delicious</span>
+                        memories for <span class="primary-color">you</span>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio natus placeat et eos,
+                        dignissimos voluptatem tempora necessitatibus doloribus! Eum qui doloribus odio dolor
+                        tenetur nihil impedit vero magni, distinctio soluta!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- TESTIMONIAL SECTION -->
+ <section id="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-xs-12">
+                <div class="review-wrap zoom play-on-scroll delay-2">
+                    <div class="review-content">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, labore nisi non
+                            molestias, minus laboriosam nostrum impedit iure facilis odio unde quia ad sunt corrupti
+                            dolores ratione voluptatibus quidem explicabo.
+                        </p>
+                        <div class="review-img bg-img"
+                            style="background-size: cover;background-image: url(https://c4.wallpaperflare.com/wallpaper/297/22/531/lake-blue-moonlight-moon-wallpaper-preview.jpg);">
+                        </div>
+                    </div>
+                    <div class="review-info">
+                        <h3>
+                            Lorem Ipsum Dolor
+                        </h3>
+                        <div class="rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="zoom play-on-scroll">
+                    <div class="review-wrap active">
+                        <div class="review-content">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, labore nisi non
+                                molestias, minus laboriosam nostrum impedit iure facilis odio unde quia ad sunt
+                                corrupti
+                                dolores ratione voluptatibus quidem explicabo.
+                            </p>
+                            <div class="review-img bg-img"
+                                style="background-size: cover;background-image: url(https://wallpapers.com/images/hd/4k-nature-at-golden-hour-5281oz5sljar0zfm.jpg);">
+                            </div>
+                        </div>
+                        <div class="review-info">
+                            <h3>
+                                Lorem Ipsum Dolor
+                            </h3>
+                            <div class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-xs-12">
+                <div class="review-wrap zoom play-on-scroll delay-4">
+                    <div class="review-content">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, labore nisi non
+                            molestias, minus laboriosam nostrum impedit iure facilis odio unde quia ad sunt corrupti
+                            dolores ratione voluptatibus quidem explicabo.
+                        </p>
+                        <div class="review-img bg-img"
+                            style="background-size: cover;background-image: url(https://i.pinimg.com/originals/91/af/5f/91af5fb83ea0dcc725488d77dac9d722.jpg);">
+                        </div>
+                    </div>
+                    <div class="review-info">
+                        <h3>
+                            Lorem Ipsum Dolor
+                        </h3>
+                        <div class="rating">                           
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END TESTIMONIAL SECTION -->
+
+ <!-- BACK TO TOP BTN -->
+  <br><br>
+  
+ <a href="#home" class="back-to-top">
+    <i class="bx bxs-to-top"></i>
+</a>
+<!-- END BACK TO TOP BTN -->
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+      <script>
+// Select the back-to-top button
+const backToTopButton = document.querySelector('.back-to-top');
+
+// Show the button when scrolling down 100px from the top of the page
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        backToTopButton.style.display = 'flex';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+});
+
+      </script>
+
+    </body>
+</html>
